@@ -8,3 +8,9 @@ bamdir="/mnt/nvme/DATA_HIEUNGUYEN/outdir/TSMA_validation/20251027batch*/SampleSh
 all_bam_files=$(ls $bamdir/*.sorted.bam);
 outputdir="/mnt/nvme/DATA_HIEUNGUYEN/outdir/TSMA_validation/reads"
 mkdir -p ${outputdir}
+
+for bamfile in ${all_bam_files}; do
+    echo "Processing file: ${bamfile}"
+    python 01_fetch_reads_from_BAM_files.py --bamfile ${bamfile} --outputdir ${outputdir};
+    done;
+    
