@@ -19,6 +19,8 @@ def _parse_args(argv=None):
                         help="Path to input directory containing all readdf files.")
     parser.add_argument("-o", "--output", default="./output",
                         help="Base output directory (will create per-sample subdir).")
+    parser.add_argument("-f", "--fa", required=True,
+                        help="Path to all fa files (reference genome by chromosome).")
     return parser.parse_args(argv)
 
 if __name__ == "__main__":
@@ -26,8 +28,13 @@ if __name__ == "__main__":
 else:
     args = _parse_args([])
     
+# local path to fa    
+# path_to_all_fa = "/Volumes/HNSD01/storage/ref/hg19"
+# path_to_all_fa = "/mnt/nvme/DATA_HIEUNGUYEN/ref/hg19"
+
 path_to_sample_readdf = args.input
 outputdir = args.output
+path_to_all_fa = args.fa
 
 samplename = path_to_sample_readdf.split("/")[-1]
 path_to_save_output = f"./{outputdir}/{samplename}"
@@ -56,7 +63,6 @@ for panel in all_panels:
         total = sum(int(num) for num in numbers)
         return total
 
-    path_to_all_fa = "/Volumes/HNSD01/storage/ref/hg19"
     def _get_motif_seq(path_to_all_fa, chrom, start, flen_sign, read_length):
         if flen_sign > 0:
             end = start +  4 - 1
