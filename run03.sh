@@ -1,5 +1,5 @@
 inputdir="/mnt/nvme/DATA_HIEUNGUYEN/outdir/TSMA_validation/reads";
-path_to_all_fa="/home/hieunguyen/src/tsma_validation/mnt/nvme/DATA_HIEUNGUYEN/ref/hg19";
+path_to_all_fa="/mnt/nvme/DATA_HIEUNGUYEN/hg19_by_chroms";
 all_samples=$(ls $inputdir/* -d);
 outputdir="/mnt/nvme/DATA_HIEUNGUYEN/outdir/TSMA_validation/fragmentomics_features";
 mkdir -p $outputdir;

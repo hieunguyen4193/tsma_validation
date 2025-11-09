@@ -37,7 +37,7 @@ outputdir = args.output
 path_to_all_fa = args.fa
 
 samplename = path_to_sample_readdf.split("/")[-1]
-path_to_save_output = f"./{outputdir}/{samplename}"
+path_to_save_output = f"{outputdir}/{samplename}"
 
 print(f"Working on sample {samplename}, output will be saved to {path_to_save_output}")
 
